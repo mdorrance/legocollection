@@ -1,0 +1,33 @@
+<%- model_class = Kit -%>
+<div class="page-header">
+  <h1><%= @kit.user.name%>'s <%= @kit.name%> Set</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @kit.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:photo_url) %>:</strong></dt>
+  <dd><%= image_tag @kit.photo_url %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:set_num) %>:</strong></dt>
+  <dd><%= @kit.set_num %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
+  <dd><%= @kit.date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:value) %>:</strong></dt>
+  <dd>$<%= @kit.value %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @kit.user.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:theme_id) %>:</strong></dt>
+  <dd><%= @kit.theme.name %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              kits_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_kit_path(@kit), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              kit_path(@kit),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
