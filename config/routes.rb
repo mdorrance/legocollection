@@ -1,4 +1,5 @@
 Legocollection::Application.routes.draw do
+  root to: "kits#index"
   resources :themes
 
 
